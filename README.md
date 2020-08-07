@@ -39,13 +39,13 @@ It will have the following attributes:
 ## Implementation
 This section is still very limited and grows with the project. The basic structure of the api
 is going to be as the following:  
-``~/api/batches/year/{year}/{id}/measurements/{id}``  
+``~/api/batches/{year}/{id}/measurements/{id}``  
   
   To get all batches:  
    ``~/api/batches``
 
  To get all batches of a year:  
- ``~/api/batches/year/{year}``  
+ ``~/api/batches/{year}``  
    
    To get a certain batch:  
     ``~/api/batches/{id}``  
