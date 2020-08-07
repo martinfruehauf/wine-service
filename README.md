@@ -19,12 +19,13 @@ It will have the following attributes:
     * id: _generated Id for the batch_
     * name: _name of the specific batch_
     * yeast: _name of the used yeast_
+    * fruits: _an array of the used fruits_
     * originCoordinates: _an array of coordinates of the origin of the fruits_
     * originDescription: _a description of the origin of the fruit_
     * productionDate: _the date when production begins_  
     
 2. An Object called "**Measurement**", which holds all the information for every time a measurement was taken.
-    * id: _generated Id for the measurement which must also refer to the batch it was taken from.
+    * id: _generated Id for the measurement which must also refer to the batch it was taken from._
     * (name: if the Id can't be created in such a way that it also refers to the respective batch, another property like a distinctive name might be needed. This still needs to be researched)
     * acid: _a floating point number representing the acid level_
     * alcohol: _a floating point number representing the alcohol level_
@@ -35,6 +36,30 @@ It will have the following attributes:
     * currentDate: _the date the measurement was taken (not supposed to be automatically generated)_
     * taste: _a description of the taste_
     
+## Implementation
+This section is still very limited and grows with the project. The basic structure of the api
+is going to be as the following:  
+``~/api/batches/year/{year)/{id}/measurements/{id}``  
+  
+  To get all batches:  
+   ``~/api/batches``
+
+ To get all batches of a year:  
+ ``~/api/batches/year/{year}``  
+   
+   To get a certain batch:  
+    ``~/api/batches/{id}``  
+      
+To get all measurement of a certain batch:  
+ ``~/api/batches/{id}/measurements``  
+   
+To get a certain measurement of a certain batch:
+
+ ``~/api/batches/{id}/measurements/{id}``  
+
+
+
+
     
 
 ## A short summary of the wine making process
