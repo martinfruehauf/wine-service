@@ -18,15 +18,18 @@ It will need two types of objects:
 It will have the following attributes:
     * id: _generated Id for the batch_
     * name: _name of the specific batch_
+    * year: _production year_
     * yeast: _name of the used yeast_
     * fruits: _an array of the used fruits_
     * originCoordinates: _an array of coordinates of the origin of the fruits_
     * originDescription: _a description of the origin of the fruit_
     * productionDate: _the date when production begins_  
+    * comment: _an optional comment_
     
 2. An Object called "**Measurement**", which holds all the information for every time a measurement was taken.
-    * id: _generated Id for the measurement which must also refer to the batch it was taken from._
+    * id: _generated Id for the measurement (which must also refer to the batch it was taken from)_
     * (name: if the Id can't be created in such a way that it also refers to the respective batch, another property like a distinctive name might be needed. This still needs to be researched)
+    * year: _production year_
     * acid: _a floating point number representing the acid level_
     * alcohol: _a floating point number representing the alcohol level_
     * sugar: _a floating point number representing the level of alcohol_
@@ -35,17 +38,18 @@ It will have the following attributes:
     * acidAdded: _a floating point number representing the amount of acid that was added_
     * currentDate: _the date the measurement was taken (not supposed to be automatically generated)_
     * taste: _a description of the taste_
+    * comment: _an optional comment_
     
 ## Implementation
 This section is still very limited and grows with the project. The basic structure of the api
 is going to be as the following:  
-``~/api/batches/{year}/{id}/measurements/{id}``  
+``~/api/batches/year/{year}/{id}/measurements/{id}``  
   
   To get all batches:  
    ``~/api/batches``
 
  To get all batches of a year:  
- ``~/api/batches/{year}``  
+ ``~/api/batches/year/{year}``  
    
    To get a certain batch:  
     ``~/api/batches/{id}``  
