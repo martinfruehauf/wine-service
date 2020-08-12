@@ -28,7 +28,7 @@ It will have the following attributes:
     
 2. An Object called "**Measurement**", which holds all the information for every time a measurement was taken.
     * id: _generated Id for the measurement (which must also refer to the batch it was taken from)_
-    * (name: if the Id can't be created in such a way that it also refers to the respective batch, another property like a distinctive name might be needed. This still needs to be researched)
+    * batch_id: _the Id of the batch which the measurement belongs to (Foreign Key Constraint)_
     * year: _production year_
     * acid: _a floating point number representing the acid level_
     * alcohol: _a floating point number representing the alcohol level_
