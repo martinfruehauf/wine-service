@@ -9,6 +9,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Path("/batches")
 @Produces(MediaType.APPLICATION_JSON)
@@ -16,8 +19,31 @@ import javax.ws.rs.core.Response;
 public class BatchResource {
     private static final Logger LOG = LoggerFactory.getLogger(BatchResource.class);
 
+
     @GET
     public Response getBatches() {
-        return Response.ok().entity(listFullBatchDTO);  // create listFUllBatchDTO !!
+        LOG.info("Get all Batches");
+        List<FullBatchDTO> listFullBatchDTO = new ArrayList<>();
+        listFullBatchDTO.add(new FullBatchDTO(
+                1,
+                "MJ-Wein",
+                2020,
+                "Portwein",
+                "Apfel",
+                new String[] {"51.481707,7.237550", "51.444453,7.251911"},
+                "Garten Lohring und Wilde Baeume an der RUB",
+                LocalDateTime.now(),
+                "Apefel waren ueberreif"));
+        listFullBatchDTO.add(new FullBatchDTO(
+                2,
+                "MJ-Wein",
+                2020,
+                "Sherry",
+                "Apfel",
+                new String[] {"51.481707,7.237550", "51.444453,7.251911"},
+                "Garten Lohring und Wilde Baeume an der RUB",
+                LocalDateTime.now(),
+                "Apefel waren ueberreif"));
+        return Response.ok().entity(listFullBatchDTO).build();  // create listFUllBatchDTO !!
     }
 }
