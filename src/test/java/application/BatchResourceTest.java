@@ -82,8 +82,49 @@ public class BatchResourceTest {
         Response response = this.resource.getBatches();
 
         assertEquals(expected, response.getEntity());
+    }
 
+    @Test
+    public void testGetBatchById() {
+        Mockito.doReturn(new Batch(
+                1,
+                "Wonder Wine",
+                2020,
+                "Portwein",
+                "Apfel",
+                new String[] {"10.481707,7.237550", "10.444453,7.251911"},
+                "Heinzstr",
+                LocalDateTime.of(2020, Month.AUGUST, 20, 18, 30),
+                "Aepfel waren etwas sauer"
+        ))
+        .when(service)
+        .getBatchById(1);
+        FullBatchDTO expected = new FullBatchDTO(
+                1,
+                "Wonder Wine",
+                2020,
+                "Portwein",
+                "Apfel",
+                new String[] {"10.481707,7.237550", "10.444453,7.251911"},
+                "Heinzstr",
+                LocalDateTime.of(2020, Month.AUGUST, 20, 18, 30).toString(),
+                "Aepfel waren etwas sauer"
+        );
 
+        Response response = this.resource.getBatchById(1);
+
+        assertEquals(expected, response.getEntity());
+    }
+
+    @Test
+    public void testGetBatchByIdFailForWrongId() {
+        Mockito.doThrow(new IllegalArgumentException())
+                .when(service)
+                .getBatchById(999999);
+
+        Response response = this.resource.getBatchById(999999);
+
+        assertEquals(404, response.getStatus());
     }
 
 }
