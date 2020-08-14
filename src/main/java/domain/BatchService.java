@@ -9,17 +9,13 @@ import java.util.List;
 
 public class BatchService {
 
-    private List<Batch> batchList;
-
     private static final Logger LOG = LoggerFactory.getLogger(BatchService.class);
 
-    public BatchService() {}
+    List<Batch> batchList; //Mocking the dataset
 
-
-    public List<Batch> getAllBatches() {
-        LOG.info("Get all Batches");
-        List<Batch> listBatch = new ArrayList<>();
-        listBatch.add(new Batch(
+    public BatchService() {
+        batchList = new ArrayList<>();
+        batchList.add(new Batch(
                 1,
                 "MJ-Wein",
                 2020,
@@ -29,7 +25,7 @@ public class BatchService {
                 "Garten Lohring und Wilde Baeume an der RUB",
                 LocalDateTime.now(),
                 "Apefel waren ueberreif"));
-        listBatch.add(new Batch(
+        batchList.add(new Batch(
                 2,
                 "MJ-Wein",
                 2020,
@@ -39,8 +35,22 @@ public class BatchService {
                 "Garten Lohring und Wilde Baeume an der RUB",
                 LocalDateTime.now(),
                 "Apefel waren ueberreif"));
-        return listBatch;
     }
 
+
+    public List<Batch> getAllBatches() {
+        LOG.info("Get all Batches");
+
+        return batchList;
+    }
+
+    public Batch getBatchById(long batchId) {
+        for (Batch batch : batchList) {
+            if (batch.getId() == batchId) {
+                return batch;
+            }
+        }
+        throw new IllegalArgumentException("Could not find batch with id: " + batchId);
+    }
 
 }
