@@ -2,7 +2,6 @@ package application;
 
 import domain.Batch;
 
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -22,7 +21,7 @@ public class FullBatchDTO {
 
     private String originDescription;
 
-    private LocalDateTime productionDate;
+    private String productionDate;
 
     private String comment;
 
@@ -35,11 +34,12 @@ public class FullBatchDTO {
         this.yeast = batch.getYeast();
         this.fruit = batch.getFruit();
         this.originCoordinates = batch.getOriginCoordinates();
-        this.productionDate = batch.getProductionDate();
+        this.originDescription = batch.getOriginDescription();
+        this.productionDate = batch.getProductionDate().toString();
         this.comment = batch.getComment();
     }
 
-    public FullBatchDTO(final long id, final String name, final long year, final String yeast, final String fruit, final String[] originCoordinates, final String originDescription, final LocalDateTime productionDate, final String comment) {
+    public FullBatchDTO(final long id, final String name, final long year, final String yeast, final String fruit, final String[] originCoordinates, final String originDescription, final String productionDate, final String comment) {
         this.id = id;
         this.name = name;
         this.year = year;
@@ -55,7 +55,7 @@ public class FullBatchDTO {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(final long id) {
         this.id = id;
     }
 
@@ -63,7 +63,7 @@ public class FullBatchDTO {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -71,7 +71,7 @@ public class FullBatchDTO {
         return year;
     }
 
-    public void setYear(long year) {
+    public void setYear(final long year) {
         this.year = year;
     }
 
@@ -79,7 +79,7 @@ public class FullBatchDTO {
         return yeast;
     }
 
-    public void setYeast(String yeast) {
+    public void setYeast(final String yeast) {
         this.yeast = yeast;
     }
 
@@ -87,7 +87,7 @@ public class FullBatchDTO {
         return fruit;
     }
 
-    public void setFruit(String fruit) {
+    public void setFruit(final String fruit) {
         this.fruit = fruit;
     }
 
@@ -95,7 +95,7 @@ public class FullBatchDTO {
         return originCoordinates;
     }
 
-    public void setOriginCoordinates(String[] originCoordinates) {
+    public void setOriginCoordinates(final String[] originCoordinates) {
         this.originCoordinates = originCoordinates;
     }
 
@@ -103,15 +103,15 @@ public class FullBatchDTO {
         return originDescription;
     }
 
-    public void setOriginDescription(String originDescription) {
+    public void setOriginDescription(final String originDescription) {
         this.originDescription = originDescription;
     }
 
-    public LocalDateTime getProductionDate() {
+    public String getProductionDate() {
         return productionDate;
     }
 
-    public void setProductionDate(LocalDateTime productionDate) {
+    public void setProductionDate(final String productionDate) {
         this.productionDate = productionDate;
     }
 
@@ -119,7 +119,7 @@ public class FullBatchDTO {
         return comment;
     }
 
-    public void setComment(String comment) {
+    public void setComment(final String comment) {
         this.comment = comment;
     }
 
@@ -133,7 +133,7 @@ public class FullBatchDTO {
                 ", fruit='" + fruit + '\'' +
                 ", originCoordinates=" + Arrays.toString(originCoordinates) +
                 ", originDescription='" + originDescription + '\'' +
-                ", productionDate=" + productionDate +
+                ", productionDate='" + productionDate + '\'' +
                 ", comment='" + comment + '\'' +
                 '}';
     }
@@ -153,4 +153,5 @@ public class FullBatchDTO {
                 Objects.equals(productionDate, that.productionDate) &&
                 Objects.equals(comment, that.comment);
     }
+
 }

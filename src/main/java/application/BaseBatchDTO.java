@@ -1,6 +1,5 @@
 package application;
 
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -18,13 +17,13 @@ public class BaseBatchDTO {
 
     private String originDescription;
 
-    private LocalDateTime productionDate;
+    private String productionDate;
 
     private String comment;
 
     BaseBatchDTO() {}
 
-    public BaseBatchDTO(final String name, final long year, final String yeast, final String fruit, final String[] originCoordinates, final String originDescription, final LocalDateTime productionDate, final String comment) {
+    public BaseBatchDTO(final String name, final long year, final String yeast, final String fruit, final String[] originCoordinates, final String originDescription, final String productionDate, final String comment) {
         this.name = name;
         this.year = year;
         this.yeast = yeast;
@@ -83,11 +82,11 @@ public class BaseBatchDTO {
         this.originDescription = originDescription;
     }
 
-    public LocalDateTime getProductionDate() {
+    public String getProductionDate() {
         return productionDate;
     }
 
-    public void setProductionDate(LocalDateTime productionDate) {
+    public void setProductionDate(String productionDate) {
         this.productionDate = productionDate;
     }
 

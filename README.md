@@ -2,7 +2,7 @@
 
 ## Current State:
 
-For now it just diplays a "Hello World"-Message
+For now, it just has a GET method to return a list of all (mocked) Batches. 
 
 ## Goal:
 
