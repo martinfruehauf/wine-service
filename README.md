@@ -2,7 +2,7 @@
 
 ## Current State:
 
-For now, it just has a GET method to return a list of all (mocked) Batches. 
+For now, it just has a GET method to return a list of all (mocked) Batches and a GET method for a single Batch by Id. 
 
 ## Goal:
 
