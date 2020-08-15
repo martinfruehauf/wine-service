@@ -44,7 +44,7 @@ public class BatchService {
         return batchList;
     }
 
-    public Batch getBatchById(long batchId) {
+    public Batch getBatchById(final long batchId) {
         for (Batch batch : batchList) {
             if (batch.getId() == batchId) {
                 return batch;
