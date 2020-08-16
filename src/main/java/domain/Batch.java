@@ -12,36 +12,36 @@ import java.util.Arrays;
 import java.util.Objects;
 
 @Entity
-@Table(name = "TAB_BATCH")
+@Table(name = "tab_batch")
 public class Batch implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "COL_ID")
+    @Column(name = "col_id")
     private long id;
 
-    @Column(name = "COL_NAME")
+    @Column(name = "col_name")
     private String name;
 
-    @Column(name = "COL_YEAR")
+    @Column(name = "col_year")
     private long year;
 
-    @Column(name = "COL_YEAST")
+    @Column(name = "col_yeast")
     private String yeast;
 
-    @Column(name = "COL_FRUIT")
+    @Column(name = "col_fruit")
     private String fruit;
 
-    @Column(name = "COL_COORD")
+    @Column(name = "col_coord")
     private String[] originCoordinates;
 
-    @Column(name = "COL_ODESC")
+    @Column(name = "col_odesc")
     private String originDescription;
 
-    @Column(name = "COL_PRODUCTDATE")
+    @Column(name = "col_productdate")
     private LocalDateTime productionDate;
 
-    @Column(name = "COL_COMMENT")
+    @Column(name = "col_comment")
     private String comment;
 
     public Batch () {}
