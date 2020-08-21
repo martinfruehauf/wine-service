@@ -50,22 +50,25 @@ This section is still very limited and grows with the project. The basic structu
 is going to be as the following:  
 ``~/api/batches/year/{year}/{id}/measurements/{id}``  
   
-  To get all batches:  
+  To get all batches or post a new batch:  
    ``~/api/batches``
 
- To get all batches of a year:  
+ To get all batches of a certain year:  
  ``~/api/batches/year/{year}``  
    
-   To get a certain batch:  
+   To get a certain batch or put/update a batch:  
     ``~/api/batches/{id}``  
       
-To get the origin of a certain Batch:  
-``~/api/origin/{id}``
+To get the origin of or put/update a certain batch:  
+``~/api/origin/{id}``  
+  
+  To post the origin of a new batch:  
+  ``~/api/origin``  
       
-To get all measurement of a certain batch:  
+To get all measurement of a certain batch or post a new one:  
  ``~/api/batches/{id}/measurements``  
    
-To get a certain measurement of a certain batch:
+To get a certain measurement of a certain batch or put/update:
 
  ``~/api/batches/{id}/measurements/{id}``  
 
