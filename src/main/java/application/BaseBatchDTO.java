@@ -1,6 +1,5 @@
 package application;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 public class BaseBatchDTO {
@@ -13,23 +12,17 @@ public class BaseBatchDTO {
 
     private String fruit;
 
-    private String[] originCoordinates;
-
-    private String originDescription;
-
     private String productionDate;
 
     private String comment;
 
     BaseBatchDTO() {}
 
-    public BaseBatchDTO(final String name, final long year, final String yeast, final String fruit, final String[] originCoordinates, final String originDescription, final String productionDate, final String comment) {
+    public BaseBatchDTO(final String name, final long year, final String yeast, final String fruit, final String productionDate, final String comment) {
         this.name = name;
         this.year = year;
         this.yeast = yeast;
         this.fruit = fruit;
-        this.originCoordinates = originCoordinates;
-        this.originDescription = originDescription;
         this.productionDate = productionDate;
         this.comment = comment;
     }
@@ -66,22 +59,6 @@ public class BaseBatchDTO {
         this.fruit = fruit;
     }
 
-    public String[] getOriginCoordinates() {
-        return originCoordinates;
-    }
-
-    public void setOriginCoordinates(String[] originCoordinates) {
-        this.originCoordinates = originCoordinates;
-    }
-
-    public String getOriginDescription() {
-        return originDescription;
-    }
-
-    public void setOriginDescription(String originDescription) {
-        this.originDescription = originDescription;
-    }
-
     public String getProductionDate() {
         return productionDate;
     }
@@ -105,8 +82,6 @@ public class BaseBatchDTO {
                 ", year=" + year +
                 ", yeast='" + yeast + '\'' +
                 ", fruit='" + fruit + '\'' +
-                ", originCoordinates=" + Arrays.toString(originCoordinates) +
-                ", originDescription='" + originDescription + '\'' +
                 ", productionDate=" + productionDate +
                 ", comment='" + comment + '\'' +
                 '}';
@@ -121,8 +96,6 @@ public class BaseBatchDTO {
                 Objects.equals(name, that.name) &&
                 Objects.equals(yeast, that.yeast) &&
                 Objects.equals(fruit, that.fruit) &&
-                Arrays.equals(originCoordinates, that.originCoordinates) &&
-                Objects.equals(originDescription, that.originDescription) &&
                 Objects.equals(productionDate, that.productionDate) &&
                 Objects.equals(comment, that.comment);
     }

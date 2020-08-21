@@ -13,7 +13,8 @@ This project is going to be a service for handling measurements of acid, sugar, 
 
 ## Structure:
 
-It will need two types of objects:  
+It will need three types of objects:  
+
 1. An Object called "**Batch**", which is the initial object that gets created when starting a new batch (i.e. a new fermentation bottle).
 It will have the following attributes:
     * id: _generated Id for the batch_
@@ -21,12 +22,16 @@ It will have the following attributes:
     * year: _production year_
     * yeast: _name of the used yeast_
     * fruits: _an array of the used fruits_
-    * originCoordinates: _an array of coordinates of the origin of the fruits_
-    * originDescription: _a description of the origin of the fruit_
     * productionDate: _the date when production begins_  
     * comment: _an optional comment_
     
-2. An Object called "**Measurement**", which holds all the information for every time a measurement was taken.
+2. An Object called "**Origin**", which relates to a Batch object and stores the coordinates of the origin of the fruits.
+    * id: _generated Id for the location_
+    * batchId: _Id that refers to the Batch (Foreign Key)_
+    * originCoordinates: _an array of coordinates of the origin of the fruits_
+    * originDescription: _a description of the origin of the fruit_
+    
+3. An Object called "**Measurement**", which holds all the information for every time a measurement was taken.
     * id: _generated Id for the measurement (which must also refer to the batch it was taken from)_
     * batch_id: _the Id of the batch which the measurement belongs to (Foreign Key Constraint)_
     * year: _production year_
@@ -34,8 +39,8 @@ It will have the following attributes:
     * alcohol: _a floating point number representing the alcohol level_
     * sugar: _a floating point number representing the level of alcohol_
     * liters: _a floating point number representing the amount of liters_
-    * sugarAdded: _a floating point number representing the amount of sugar that was added_
-    * acidAdded: _a floating point number representing the amount of acid that was added_
+    * addedSugar: _a floating point number representing the amount of sugar that was added_
+    * addedAcid: _a floating point number representing the amount of acid that was added_
     * currentDate: _the date the measurement was taken (not supposed to be automatically generated)_
     * taste: _a description of the taste_
     * comment: _an optional comment_
@@ -45,19 +50,25 @@ This section is still very limited and grows with the project. The basic structu
 is going to be as the following:  
 ``~/api/batches/year/{year}/{id}/measurements/{id}``  
   
-  To get all batches:  
+  To get all batches or post a new batch:  
    ``~/api/batches``
 
- To get all batches of a year:  
+ To get all batches of a certain year:  
  ``~/api/batches/year/{year}``  
    
-   To get a certain batch:  
+   To get a certain batch or put/update a batch:  
     ``~/api/batches/{id}``  
       
-To get all measurement of a certain batch:  
+To get the origin of or put/update a certain batch:  
+``~/api/origin/{id}``  
+  
+  To post the origin of a new batch:  
+  ``~/api/origin``  
+      
+To get all measurement of a certain batch or post a new one:  
  ``~/api/batches/{id}/measurements``  
    
-To get a certain measurement of a certain batch:
+To get a certain measurement of a certain batch or put/update:
 
  ``~/api/batches/{id}/measurements/{id}``  
 

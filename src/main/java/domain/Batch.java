@@ -8,52 +8,43 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.Objects;
 
 @Entity
-@Table(name = "TAB_BATCH")
+@Table(name = "tab_batch")
 public class Batch implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "COL_ID")
+    @Column(name = "col_id")
     private long id;
 
-    @Column(name = "COL_NAME")
+    @Column(name = "col_name")
     private String name;
 
-    @Column(name = "COL_YEAR")
+    @Column(name = "col_year")
     private long year;
 
-    @Column(name = "COL_YEAST")
+    @Column(name = "col_yeast")
     private String yeast;
 
-    @Column(name = "COL_FRUIT")
+    @Column(name = "col_fruit")
     private String fruit;
 
-    @Column(name = "COL_COORD")
-    private String[] originCoordinates;
-
-    @Column(name = "COL_ODESC")
-    private String originDescription;
-
-    @Column(name = "COL_PRODUCTDATE")
+    @Column(name = "col_productdate")
     private LocalDateTime productionDate;
 
-    @Column(name = "COL_COMMENT")
+    @Column(name = "col_comment")
     private String comment;
 
     public Batch () {}
 
-    public Batch(final long id, final String name, final long year, final String yeast, final String fruit, final String[] originCoordinates, final String originDescription, final LocalDateTime productionDate, final String comment) {
+    public Batch(final long id, final String name, final long year, final String yeast, final String fruit, final LocalDateTime productionDate, final String comment) {
         this.id = id;
         this.name = name;
         this.year = year;
         this.yeast = yeast;
         this.fruit = fruit;
-        this.originCoordinates = originCoordinates;
-        this.originDescription = originDescription;
         this.productionDate = productionDate;
         this.comment = comment;
     }
@@ -103,22 +94,6 @@ public class Batch implements Serializable {
         this.fruit = fruit;
     }
 
-    public String[] getOriginCoordinates() {
-        return originCoordinates;
-    }
-
-    public void setOriginCoordinates(String[] originCoordinates) {
-        this.originCoordinates = originCoordinates;
-    }
-
-    public String getOriginDescription() {
-        return originDescription;
-    }
-
-    public void setOriginDescription(String originDescription) {
-        this.originDescription = originDescription;
-    }
-
     public LocalDateTime getProductionDate() {
         return productionDate;
     }
@@ -143,8 +118,6 @@ public class Batch implements Serializable {
                 ", year=" + year +
                 ", yeast='" + yeast + '\'' +
                 ", fruit='" + fruit + '\'' +
-                ", originCoordinates=" + Arrays.toString(originCoordinates) +
-                ", originDescription='" + originDescription + '\'' +
                 ", productionDate=" + productionDate +
                 ", comment='" + comment + '\'' +
                 '}';
@@ -160,8 +133,6 @@ public class Batch implements Serializable {
                 Objects.equals(name, batch.name) &&
                 Objects.equals(yeast, batch.yeast) &&
                 Objects.equals(fruit, batch.fruit) &&
-                Arrays.equals(originCoordinates, batch.originCoordinates) &&
-                Objects.equals(originDescription, batch.originDescription) &&
                 Objects.equals(productionDate, batch.productionDate) &&
                 Objects.equals(comment, batch.comment);
     }

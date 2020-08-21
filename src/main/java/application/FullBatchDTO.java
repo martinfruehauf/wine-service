@@ -2,7 +2,6 @@ package application;
 
 import domain.Batch;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 public class FullBatchDTO {
@@ -17,10 +16,6 @@ public class FullBatchDTO {
 
     private String fruit;
 
-    private String[] originCoordinates;
-
-    private String originDescription;
-
     private String productionDate;
 
     private String comment;
@@ -33,20 +28,16 @@ public class FullBatchDTO {
         this.year = batch.getYear();
         this.yeast = batch.getYeast();
         this.fruit = batch.getFruit();
-        this.originCoordinates = batch.getOriginCoordinates();
-        this.originDescription = batch.getOriginDescription();
         this.productionDate = batch.getProductionDate().toString();
         this.comment = batch.getComment();
     }
 
-    public FullBatchDTO(final long id, final String name, final long year, final String yeast, final String fruit, final String[] originCoordinates, final String originDescription, final String productionDate, final String comment) {
+    public FullBatchDTO(final long id, final String name, final long year, final String yeast, final String fruit, final String productionDate, final String comment) {
         this.id = id;
         this.name = name;
         this.year = year;
         this.yeast = yeast;
         this.fruit = fruit;
-        this.originCoordinates = originCoordinates;
-        this.originDescription = originDescription;
         this.productionDate = productionDate;
         this.comment = comment;
     }
@@ -91,22 +82,6 @@ public class FullBatchDTO {
         this.fruit = fruit;
     }
 
-    public String[] getOriginCoordinates() {
-        return originCoordinates;
-    }
-
-    public void setOriginCoordinates(final String[] originCoordinates) {
-        this.originCoordinates = originCoordinates;
-    }
-
-    public String getOriginDescription() {
-        return originDescription;
-    }
-
-    public void setOriginDescription(final String originDescription) {
-        this.originDescription = originDescription;
-    }
-
     public String getProductionDate() {
         return productionDate;
     }
@@ -131,8 +106,6 @@ public class FullBatchDTO {
                 ", year=" + year +
                 ", yeast='" + yeast + '\'' +
                 ", fruit='" + fruit + '\'' +
-                ", originCoordinates=" + Arrays.toString(originCoordinates) +
-                ", originDescription='" + originDescription + '\'' +
                 ", productionDate='" + productionDate + '\'' +
                 ", comment='" + comment + '\'' +
                 '}';
@@ -148,8 +121,6 @@ public class FullBatchDTO {
                 Objects.equals(name, that.name) &&
                 Objects.equals(yeast, that.yeast) &&
                 Objects.equals(fruit, that.fruit) &&
-                Arrays.equals(originCoordinates, that.originCoordinates) &&
-                Objects.equals(originDescription, that.originDescription) &&
                 Objects.equals(productionDate, that.productionDate) &&
                 Objects.equals(comment, that.comment);
     }
