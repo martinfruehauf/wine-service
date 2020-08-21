@@ -35,8 +35,6 @@ public class BatchResourceTest {
                 2020,
                 "Portwein",
                 "Apfel",
-                new String[] {"10.481707,7.237550", "10.444453,7.251911"},
-                "Heinzstr",
                 LocalDateTime.of(2020, Month.AUGUST, 20, 18, 30).toString(),
                 "Aepfel waren etwas sauer"
         ));
@@ -46,8 +44,6 @@ public class BatchResourceTest {
                 2019,
                 "Portwein",
                 "Apfel",
-                new String[] {"10.481707,7.237550", "10.444453,7.251911"},
-                "Velbert",
                 LocalDateTime.of(2019, Month.AUGUST, 20, 18, 30).toString(),
                 "Aepfel waren perfekt"
         ));
@@ -59,8 +55,6 @@ public class BatchResourceTest {
                 2020,
                 "Portwein",
                 "Apfel",
-                new String[] {"10.481707,7.237550", "10.444453,7.251911"},
-                "Heinzstr",
                 LocalDateTime.of(2020, Month.AUGUST, 20, 18, 30),
                 "Aepfel waren etwas sauer"
         ));
@@ -70,8 +64,6 @@ public class BatchResourceTest {
                 2019,
                 "Portwein",
                 "Apfel",
-                new String[] {"10.481707,7.237550", "10.444453,7.251911"},
-                "Velbert",
                 LocalDateTime.of(2019, Month.AUGUST, 20, 18, 30),
                 "Aepfel waren perfekt"
         ));
@@ -92,8 +84,6 @@ public class BatchResourceTest {
                 2020,
                 "Portwein",
                 "Apfel",
-                new String[] {"10.481707,7.237550", "10.444453,7.251911"},
-                "Heinzstr",
                 LocalDateTime.of(2020, Month.AUGUST, 20, 18, 30),
                 "Aepfel waren etwas sauer"
         ))
@@ -105,8 +95,6 @@ public class BatchResourceTest {
                 2020,
                 "Portwein",
                 "Apfel",
-                new String[] {"10.481707,7.237550", "10.444453,7.251911"},
-                "Heinzstr",
                 LocalDateTime.of(2020, Month.AUGUST, 20, 18, 30).toString(),
                 "Aepfel waren etwas sauer"
         );

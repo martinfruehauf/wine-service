@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.Objects;
 
 @Entity
@@ -32,12 +31,6 @@ public class Batch implements Serializable {
     @Column(name = "col_fruit")
     private String fruit;
 
-    @Column(name = "col_coord")
-    private String[] originCoordinates;
-
-    @Column(name = "col_odesc")
-    private String originDescription;
-
     @Column(name = "col_productdate")
     private LocalDateTime productionDate;
 
@@ -46,14 +39,12 @@ public class Batch implements Serializable {
 
     public Batch () {}
 
-    public Batch(final long id, final String name, final long year, final String yeast, final String fruit, final String[] originCoordinates, final String originDescription, final LocalDateTime productionDate, final String comment) {
+    public Batch(final long id, final String name, final long year, final String yeast, final String fruit, final LocalDateTime productionDate, final String comment) {
         this.id = id;
         this.name = name;
         this.year = year;
         this.yeast = yeast;
         this.fruit = fruit;
-        this.originCoordinates = originCoordinates;
-        this.originDescription = originDescription;
         this.productionDate = productionDate;
         this.comment = comment;
     }
@@ -103,22 +94,6 @@ public class Batch implements Serializable {
         this.fruit = fruit;
     }
 
-    public String[] getOriginCoordinates() {
-        return originCoordinates;
-    }
-
-    public void setOriginCoordinates(String[] originCoordinates) {
-        this.originCoordinates = originCoordinates;
-    }
-
-    public String getOriginDescription() {
-        return originDescription;
-    }
-
-    public void setOriginDescription(String originDescription) {
-        this.originDescription = originDescription;
-    }
-
     public LocalDateTime getProductionDate() {
         return productionDate;
     }
@@ -143,8 +118,6 @@ public class Batch implements Serializable {
                 ", year=" + year +
                 ", yeast='" + yeast + '\'' +
                 ", fruit='" + fruit + '\'' +
-                ", originCoordinates=" + Arrays.toString(originCoordinates) +
-                ", originDescription='" + originDescription + '\'' +
                 ", productionDate=" + productionDate +
                 ", comment='" + comment + '\'' +
                 '}';
@@ -160,8 +133,6 @@ public class Batch implements Serializable {
                 Objects.equals(name, batch.name) &&
                 Objects.equals(yeast, batch.yeast) &&
                 Objects.equals(fruit, batch.fruit) &&
-                Arrays.equals(originCoordinates, batch.originCoordinates) &&
-                Objects.equals(originDescription, batch.originDescription) &&
                 Objects.equals(productionDate, batch.productionDate) &&
                 Objects.equals(comment, batch.comment);
     }

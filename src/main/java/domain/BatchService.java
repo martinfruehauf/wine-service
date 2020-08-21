@@ -24,8 +24,6 @@ public class BatchService {
                 2020,
                 "Portwein",
                 "Apfel",
-                new String[] {"51.481707,7.237550", "51.444453,7.251911"},
-                "Garten Lohring und Wilde Baeume an der RUB",
                 LocalDateTime.now(),
                 "Apefel waren ueberreif"));
         batchList.add(new Batch(
@@ -34,8 +32,6 @@ public class BatchService {
                 2020,
                 "Sherry",
                 "Apfel",
-                new String[] {"51.481707,7.237550", "51.444453,7.251911"},
-                "Garten Lohring und Wilde Baeume an der RUB",
                 LocalDateTime.now(),
                 "Apefel waren ueberreif"));
     }
