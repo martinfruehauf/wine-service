@@ -4,10 +4,10 @@ create table tab_batch (
   col_year smallint,
   col_yeast text,
   col_fruit text,
-  col_product_date timestamp,
+  col_productdate timestamp,
   col_comment text,
   PRIMARY KEY (col_id)
 );
 
-insert into tab_batch (col_name, col_year, col_yeast, col_fruit, col_comment) values ('MJ-Wein', 2019, 'Portwein', 'Apfel', '2019-10-09T23:11:00', 'Apefel waren ueberreif');
-insert into tab_batch (col_name, col_year, col_yeast, col_fruit, col_comment) values ('MJ-Wein', 2020, 'Sherry', 'Apfel', '2020-10-09T23:11:00', 'Apefel waren etwas sauer');
+insert into tab_batch (col_name, col_year, col_yeast, col_fruit, col_productdate, col_comment) values ('MJ-Wein', 2019, 'Portwein', 'Apfel', '2019-10-09T23:11:00', 'Apefel waren ueberreif');
+insert into tab_batch (col_name, col_year, col_yeast, col_fruit, col_productdate, col_comment) values ('MJ-Wein', 2020, 'Sherry', 'Apfel', '2020-10-09T23:11:00', 'Apefel waren etwas sauer');
