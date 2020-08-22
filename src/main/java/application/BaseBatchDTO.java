@@ -82,7 +82,7 @@ public class BaseBatchDTO {
                 ", year=" + year +
                 ", yeast='" + yeast + '\'' +
                 ", fruit='" + fruit + '\'' +
-                ", productionDate=" + productionDate +
+                ", productionDate='" + productionDate + '\'' +
                 ", comment='" + comment + '\'' +
                 '}';
     }
@@ -99,4 +99,5 @@ public class BaseBatchDTO {
                 Objects.equals(productionDate, that.productionDate) &&
                 Objects.equals(comment, that.comment);
     }
+
 }

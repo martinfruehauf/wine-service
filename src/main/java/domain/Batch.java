@@ -77,7 +77,7 @@ public class Batch implements Serializable {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(final long id) {
         this.id = id;
     }
 
@@ -85,7 +85,7 @@ public class Batch implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -93,7 +93,7 @@ public class Batch implements Serializable {
         return year;
     }
 
-    public void setYear(long year) {
+    public void setYear(final long year) {
         this.year = year;
     }
 
@@ -101,7 +101,7 @@ public class Batch implements Serializable {
         return yeast;
     }
 
-    public void setYeast(String yeast) {
+    public void setYeast(final String yeast) {
         this.yeast = yeast;
     }
 
@@ -109,7 +109,7 @@ public class Batch implements Serializable {
         return fruit;
     }
 
-    public void setFruit(String fruit) {
+    public void setFruit(final String fruit) {
         this.fruit = fruit;
     }
 
@@ -117,7 +117,7 @@ public class Batch implements Serializable {
         return productionDate;
     }
 
-    public void setProductionDate(LocalDateTime productionDate) {
+    public void setProductionDate(final LocalDateTime productionDate) {
         this.productionDate = productionDate;
     }
 
@@ -125,7 +125,7 @@ public class Batch implements Serializable {
         return comment;
     }
 
-    public void setComment(String comment) {
+    public void setComment(final String comment) {
         this.comment = comment;
     }
 
