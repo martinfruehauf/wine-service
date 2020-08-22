@@ -1,11 +1,14 @@
 package domain;
 
+import application.BaseBatchDTO;
+import infrastructure.stereotypes.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import java.util.List;
 
+@Service
 public class BatchService {
     @Inject
     private BatchRepository batchRepository;
@@ -31,6 +34,18 @@ public class BatchService {
             throw new IllegalArgumentException("Could not find batch with id: " + batchId);
         }
         return batch;
+    }
+
+    public long addBatch(final BaseBatchDTO baseBatchDTO) {
+        LOG.info("Add Batch");
+        Batch batch = new Batch(baseBatchDTO);
+        return batchRepository.addBatch(batch);
+    }
+
+    public void updateBatch(final long batchId, final BaseBatchDTO baseBatchDTO) {
+        LOG.info("Update todo by id: {}", batchId);
+        getBatchById(batchId);
+        batchRepository.updateBatch(new Batch(batchId, baseBatchDTO));
     }
 
 }

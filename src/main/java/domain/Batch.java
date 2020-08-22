@@ -1,5 +1,7 @@
 package domain;
 
+import application.BaseBatchDTO;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,7 +39,9 @@ public class Batch implements Serializable {
     @Column(name = "col_comment")
     private String comment;
 
-    public Batch () {}
+    public Batch () {
+
+    }
 
     public Batch(final long id, final String name, final long year, final String yeast, final String fruit, final LocalDateTime productionDate, final String comment) {
         this.id = id;
@@ -49,9 +53,24 @@ public class Batch implements Serializable {
         this.comment = comment;
     }
 
-    //mit baseBatchDTO
+    public Batch(final BaseBatchDTO baseBatchDTO) {
+        this.name = baseBatchDTO.getName();
+        this.year = baseBatchDTO.getYear();
+        this.yeast = baseBatchDTO.getYeast();
+        this.fruit = baseBatchDTO.getFruit();
+        this.productionDate = LocalDateTime.parse(baseBatchDTO.getProductionDate());
+        this.comment = baseBatchDTO.getComment();
+    }
 
-    //mit id und baseBatchDTO
+    public Batch(final long batchId, final BaseBatchDTO baseBatchDTO) {
+        this.id = batchId;
+        this.name = baseBatchDTO.getName();
+        this.year = baseBatchDTO.getYear();
+        this.yeast = baseBatchDTO.getYeast();
+        this.fruit = baseBatchDTO.getFruit();
+        this.productionDate = LocalDateTime.parse(baseBatchDTO.getProductionDate());
+        this.comment = baseBatchDTO.getComment();
+    }
 
 
     public long getId() {
