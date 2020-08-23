@@ -115,4 +115,92 @@ public class BatchResourceTest {
         assertEquals(404, response.getStatus());
     }
 
+    @Test
+    public void testAddBatch() {
+        Mockito.doReturn(4L)
+                .when(service)
+                .addBatch(new BaseBatchDTO(
+                        "Neuer Wein",
+                        2020,
+                        "Portwein",
+                        "Birne",
+                        LocalDateTime.MIN.toString(),
+                        "Aepfel waren etwas sauer"
+                ));
+        Response response = this.resource.addBatch(new BaseBatchDTO(
+                "Neuer Wein",
+                2020,
+                "Portwein",
+                "Birne",
+                LocalDateTime.MIN.toString(),
+                "Aepfel waren etwas sauer"
+        ));
+        assertEquals(201, response.getStatus());
+        assertEquals("/api/batches/4", response.getEntity());
+    }
+
+    @Test
+    public void testUpdateBatch() {
+        Mockito.doNothing()
+                .when(service)
+                .updateBatch(1, new BaseBatchDTO(
+                        "Neuer Wein",
+                        2020,
+                        "Portwein",
+                        "Birne",
+                        LocalDateTime.MIN.toString(),
+                        "Aepfel waren etwas sauer"
+                ));
+        Response response = this.resource.updateBatch(1, new BaseBatchDTO(
+                "Neuer Wein",
+                2020,
+                "Portwein",
+                "Birne",
+                LocalDateTime.MIN.toString(),
+                "Aepfel waren etwas sauer"
+        ));
+        assertEquals(204, response.getStatus());
+    }
+
+    @Test
+    public void testUpdateBatchShouldFailForWrongID() {
+        Mockito.doThrow(new IllegalArgumentException())
+                .when(service)
+                .updateBatch(99999, new BaseBatchDTO(
+                        "Neuer Wein",
+                        2020,
+                        "Portwein",
+                        "Birne",
+                        LocalDateTime.MIN.toString(),
+                        "Aepfel waren etwas sauer"
+                ));
+        Response response = this.resource.updateBatch(99999, new BaseBatchDTO(
+                "Neuer Wein",
+                2020,
+                "Portwein",
+                "Birne",
+                LocalDateTime.MIN.toString(),
+                "Aepfel waren etwas sauer"
+        ));
+        assertEquals(404, response.getStatus());
+    }
+
+    @Test
+    public void testDeleteBatch() {
+        Mockito.doNothing()
+                .when(service)
+                .deleteBatch(1);
+        Response response = this.resource.deleteBatch(1);
+        assertEquals(204, response.getStatus());
+    }
+
+    @Test
+    public void testDeleteBatchShouldFailForWrongId() {
+        Mockito.doThrow(new IllegalArgumentException())
+                .when(service)
+                .deleteBatch(99999);
+        Response response = this.resource.deleteBatch(99999);
+        assertEquals(404, response.getStatus());
+    }
+
 }
