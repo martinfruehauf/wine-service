@@ -16,7 +16,7 @@ public class BaseBatchDTO {
 
     private String comment;
 
-    BaseBatchDTO() {}
+    public BaseBatchDTO() {}
 
     public BaseBatchDTO(final String name, final long year, final String yeast, final String fruit, final String productionDate, final String comment) {
         this.name = name;
