@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -81,6 +82,20 @@ public class BatchResource {
             return Response.status(Response.Status.NO_CONTENT).build();
         } catch (IllegalArgumentException e) {
             LOG.warn("Update batch by id: {} not possible", batchId);
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
+    @DELETE
+    @Path("/{batchId}")
+    @Transactional
+    public Response deleteBatch(@PathParam("batchId") final long batchId) {
+        try {
+            LOG.info("Delete batch by id: {}", batchId);
+            batchService.deleteBatch(batchId);
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } catch (IllegalArgumentException e){
+            LOG.warn("Delete batch by id: {} not possible", batchId);
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }

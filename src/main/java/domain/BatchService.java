@@ -48,4 +48,9 @@ public class BatchService {
         batchRepository.updateBatch(new Batch(batchId, baseBatchDTO));
     }
 
+    public void deleteBatch(final long batchId) {
+        LOG.info("Delete batch by id: {}", batchId);
+        batchRepository.deleteBatch(batchId);
+    }
+
 }

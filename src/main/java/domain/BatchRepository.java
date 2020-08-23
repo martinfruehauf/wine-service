@@ -45,4 +45,10 @@ public class BatchRepository {
         LOG.info("Update batch");
         em.merge(batch);
     }
+
+    public void deleteBatch(final long batchId) {
+        LOG.info("Delete batch by id: {}", batchId);
+        Batch batch = em.find(Batch.class, batchId);
+        em.remove(batch);
+    }
 }
