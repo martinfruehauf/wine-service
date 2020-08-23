@@ -22,7 +22,7 @@ public class FullBatchDTO {
 
     public FullBatchDTO () {}
 
-    public FullBatchDTO(Batch batch) {
+    public FullBatchDTO(final Batch batch) {
         this.id = batch.getId();
         this.name = batch.getName();
         this.year = batch.getYear();

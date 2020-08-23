@@ -34,4 +34,21 @@ public class BatchRepository {
         LOG.info("Get batch by id: {}", batchId);
         return em.find(Batch.class, batchId);
     }
+
+    public long addBatch(final Batch batch) {
+        LOG.info("Add batch");
+        em.persist(batch);
+        return batch.getId();
+    }
+
+    public void updateBatch(final Batch batch) {
+        LOG.info("Update batch");
+        em.merge(batch);
+    }
+
+    public void deleteBatch(final long batchId) {
+        LOG.info("Delete batch by id: {}", batchId);
+        Batch batch = em.find(Batch.class, batchId);
+        em.remove(batch);
+    }
 }

@@ -15,6 +15,10 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <version.slf4j>1.7.28</version.slf4j>
         <version.mockito>3.3.3</version.mockito>
+
+        <!-- tes test -->
+        <version.rider-core>1.13.1</version.rider-core>
+
     </properties>
 
     <build>
@@ -79,6 +83,28 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!-- test test -->
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>4.3.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.10.4</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.database-rider</groupId>
+            <artifactId>rider-core</artifactId>
+            <version>${version.rider-core}</version>
             <scope>test</scope>
         </dependency>
 

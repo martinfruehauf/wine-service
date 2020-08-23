@@ -1,13 +1,14 @@
 package domain;
 
+import application.BaseBatchDTO;
+import infrastructure.stereotypes.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class BatchService {
     @Inject
     private BatchRepository batchRepository;
@@ -17,25 +18,7 @@ public class BatchService {
     List<Batch> batchList; //Mocking the dataset
 
     public BatchService() {
-        batchList = new ArrayList<>();
-        batchList.add(new Batch(
-                1,
-                "MJ-Wein",
-                2020,
-                "Portwein",
-                "Apfel",
-                LocalDateTime.now(),
-                "Apefel waren ueberreif"));
-        batchList.add(new Batch(
-                2,
-                "MJ-Wein",
-                2020,
-                "Sherry",
-                "Apfel",
-                LocalDateTime.now(),
-                "Apefel waren ueberreif"));
     }
-
 
     public List<Batch> getAllBatches() {
         LOG.info("Get all Batches");
@@ -51,6 +34,23 @@ public class BatchService {
             throw new IllegalArgumentException("Could not find batch with id: " + batchId);
         }
         return batch;
+    }
+
+    public long addBatch(final BaseBatchDTO baseBatchDTO) {
+        LOG.info("Add Batch");
+        Batch batch = new Batch(baseBatchDTO);
+        return batchRepository.addBatch(batch);
+    }
+
+    public void updateBatch(final long batchId, final BaseBatchDTO baseBatchDTO) {
+        LOG.info("Update todo by id: {}", batchId);
+        getBatchById(batchId);
+        batchRepository.updateBatch(new Batch(batchId, baseBatchDTO));
+    }
+
+    public void deleteBatch(final long batchId) {
+        LOG.info("Delete batch by id: {}", batchId);
+        batchRepository.deleteBatch(batchId);
     }
 
 }

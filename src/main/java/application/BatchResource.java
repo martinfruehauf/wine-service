@@ -6,8 +6,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -53,6 +58,44 @@ public class BatchResource {
             return Response.ok().entity(fullBatchDTO).build();
         } catch (IllegalArgumentException e) {
             LOG.warn("Could not find batch by id: {}", batchId);
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
+    @POST
+    @Produces(MediaType.TEXT_PLAIN)
+    @Transactional
+    public Response addBatch(@Valid final BaseBatchDTO baseBatchDTO) {
+        LOG.info("Create new batch");
+        long batchId = batchService.addBatch(baseBatchDTO);
+        String uri = "/api/batches/" + batchId;
+        return Response.status(Response.Status.CREATED).entity(uri).build();
+    }
+
+    @PUT
+    @Path("/{batchId}")
+    @Transactional
+    public Response updateBatch(@PathParam("batchId") final long batchId, final BaseBatchDTO baseBatchDTO) {
+        try {
+            LOG.info("Update batch by id: {}", batchId);
+            batchService.updateBatch(batchId, baseBatchDTO);
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } catch (IllegalArgumentException e) {
+            LOG.warn("Update batch by id: {} not possible", batchId);
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
+    @DELETE
+    @Path("/{batchId}")
+    @Transactional
+    public Response deleteBatch(@PathParam("batchId") final long batchId) {
+        try {
+            LOG.info("Delete batch by id: {}", batchId);
+            batchService.deleteBatch(batchId);
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } catch (IllegalArgumentException e){
+            LOG.warn("Delete batch by id: {} not possible", batchId);
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }

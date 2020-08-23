@@ -16,7 +16,7 @@ public class BaseBatchDTO {
 
     private String comment;
 
-    BaseBatchDTO() {}
+    public BaseBatchDTO() {}
 
     public BaseBatchDTO(final String name, final long year, final String yeast, final String fruit, final String productionDate, final String comment) {
         this.name = name;
@@ -31,7 +31,7 @@ public class BaseBatchDTO {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -39,7 +39,7 @@ public class BaseBatchDTO {
         return year;
     }
 
-    public void setYear(long year) {
+    public void setYear(final long year) {
         this.year = year;
     }
 
@@ -47,7 +47,7 @@ public class BaseBatchDTO {
         return yeast;
     }
 
-    public void setYeast(String yeast) {
+    public void setYeast(final String yeast) {
         this.yeast = yeast;
     }
 
@@ -55,7 +55,7 @@ public class BaseBatchDTO {
         return fruit;
     }
 
-    public void setFruit(String fruit) {
+    public void setFruit(final String fruit) {
         this.fruit = fruit;
     }
 
@@ -63,7 +63,7 @@ public class BaseBatchDTO {
         return productionDate;
     }
 
-    public void setProductionDate(String productionDate) {
+    public void setProductionDate(final String productionDate) {
         this.productionDate = productionDate;
     }
 
@@ -71,7 +71,7 @@ public class BaseBatchDTO {
         return comment;
     }
 
-    public void setComment(String comment) {
+    public void setComment(final String comment) {
         this.comment = comment;
     }
 
@@ -82,7 +82,7 @@ public class BaseBatchDTO {
                 ", year=" + year +
                 ", yeast='" + yeast + '\'' +
                 ", fruit='" + fruit + '\'' +
-                ", productionDate=" + productionDate +
+                ", productionDate='" + productionDate + '\'' +
                 ", comment='" + comment + '\'' +
                 '}';
     }
@@ -99,4 +99,5 @@ public class BaseBatchDTO {
                 Objects.equals(productionDate, that.productionDate) &&
                 Objects.equals(comment, that.comment);
     }
+
 }

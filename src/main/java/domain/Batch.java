@@ -1,5 +1,7 @@
 package domain;
 
+import application.BaseBatchDTO;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,7 +39,9 @@ public class Batch implements Serializable {
     @Column(name = "col_comment")
     private String comment;
 
-    public Batch () {}
+    public Batch () {
+
+    }
 
     public Batch(final long id, final String name, final long year, final String yeast, final String fruit, final LocalDateTime productionDate, final String comment) {
         this.id = id;
@@ -49,16 +53,31 @@ public class Batch implements Serializable {
         this.comment = comment;
     }
 
-    //mit baseBatchDTO
+    public Batch(final BaseBatchDTO baseBatchDTO) {
+        this.name = baseBatchDTO.getName();
+        this.year = baseBatchDTO.getYear();
+        this.yeast = baseBatchDTO.getYeast();
+        this.fruit = baseBatchDTO.getFruit();
+        this.productionDate = LocalDateTime.parse(baseBatchDTO.getProductionDate());
+        this.comment = baseBatchDTO.getComment();
+    }
 
-    //mit id und baseBatchDTO
+    public Batch(final long batchId, final BaseBatchDTO baseBatchDTO) {
+        this.id = batchId;
+        this.name = baseBatchDTO.getName();
+        this.year = baseBatchDTO.getYear();
+        this.yeast = baseBatchDTO.getYeast();
+        this.fruit = baseBatchDTO.getFruit();
+        this.productionDate = LocalDateTime.parse(baseBatchDTO.getProductionDate());
+        this.comment = baseBatchDTO.getComment();
+    }
 
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(final long id) {
         this.id = id;
     }
 
@@ -66,7 +85,7 @@ public class Batch implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -74,7 +93,7 @@ public class Batch implements Serializable {
         return year;
     }
 
-    public void setYear(long year) {
+    public void setYear(final long year) {
         this.year = year;
     }
 
@@ -82,7 +101,7 @@ public class Batch implements Serializable {
         return yeast;
     }
 
-    public void setYeast(String yeast) {
+    public void setYeast(final String yeast) {
         this.yeast = yeast;
     }
 
@@ -90,7 +109,7 @@ public class Batch implements Serializable {
         return fruit;
     }
 
-    public void setFruit(String fruit) {
+    public void setFruit(final String fruit) {
         this.fruit = fruit;
     }
 
@@ -98,7 +117,7 @@ public class Batch implements Serializable {
         return productionDate;
     }
 
-    public void setProductionDate(LocalDateTime productionDate) {
+    public void setProductionDate(final LocalDateTime productionDate) {
         this.productionDate = productionDate;
     }
 
@@ -106,7 +125,7 @@ public class Batch implements Serializable {
         return comment;
     }
 
-    public void setComment(String comment) {
+    public void setComment(final String comment) {
         this.comment = comment;
     }
 
