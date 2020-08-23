@@ -1,4 +1,4 @@
-package application;
+package application.batch;
 
 import java.util.Objects;
 

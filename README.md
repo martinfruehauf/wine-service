@@ -28,7 +28,7 @@ It will have the following attributes:
 2. An Object called "**Origin**", which relates to a Batch object and stores the coordinates of the origin of the fruits.
     * id: _generated Id for the location_
     * batchId: _Id that refers to the Batch (Foreign Key)_
-    * originCoordinates: _an array of coordinates of the origin of the fruits_
+    * originCoordinates: _coordinates of the origin of the fruits_
     * originDescription: _a description of the origin of the fruit_
     
 3. An Object called "**Measurement**", which holds all the information for every time a measurement was taken.
@@ -53,8 +53,6 @@ is going to be as the following:
   To get all batches or post a new batch:  
    ``~/api/batches``
 
- To get all batches of a certain year:  
- ``~/api/batches/year/{year}``  
    
    To get a certain batch, delete or put/update a batch:  
     ``~/api/batches/{id}``  

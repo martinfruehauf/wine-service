@@ -1,6 +1,6 @@
-package domain;
+package domain.batch;
 
-import application.BaseBatchDTO;
+import application.batch.BaseBatchDTO;
 import infrastructure.stereotypes.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

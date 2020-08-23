@@ -1,4 +1,4 @@
-package domain;
+package domain.batch;
 
 
 import infrastructure.stereotypes.Repository;

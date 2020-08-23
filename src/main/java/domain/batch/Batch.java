@@ -1,6 +1,6 @@
-package domain;
+package domain.batch;
 
-import application.BaseBatchDTO;
+import application.batch.BaseBatchDTO;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

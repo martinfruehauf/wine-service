@@ -1,7 +1,7 @@
-package application;
+package application.batch;
 
-import domain.Batch;
-import domain.BatchService;
+import domain.batch.Batch;
+import domain.batch.BatchService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

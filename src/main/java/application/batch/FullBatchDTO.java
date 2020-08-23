@@ -1,6 +1,6 @@
-package application;
+package application.batch;
 
-import domain.Batch;
+import domain.batch.Batch;
 
 import java.util.Objects;
 

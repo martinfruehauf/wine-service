@@ -1,7 +1,10 @@
 package application;
 
-import domain.Batch;
-import domain.BatchService;
+import application.batch.BaseBatchDTO;
+import application.batch.BatchResource;
+import application.batch.FullBatchDTO;
+import domain.batch.Batch;
+import domain.batch.BatchService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
